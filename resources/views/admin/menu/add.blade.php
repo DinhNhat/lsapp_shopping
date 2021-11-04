@@ -9,16 +9,20 @@
 
     <!-- form start -->
     <form action="" method="post">
+        @csrf
         <div class="card-body">
 
             <div class="form-group">
                 <label for="menu-name">Name</label>
-                <input type="text" class="form-control" name="menuName" id="menu-name" placeholder="Enter menu name">
+                <input type="text" class="form-control" name="name" id="menu-name" placeholder="Enter menu name">
             </div>
             <div class="form-group">
                 <label for="parent">Menus</label>
                 <select class="form-control" name="parent_id">
-                    <option value="0">Parent</option>
+                    <option value="0">Parent menu</option>
+                    @foreach($menus as $menu)
+                        <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">
@@ -27,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label for="content">Content</label>
-                <textarea class="form-control" name="content" placeholder="Enter content"></textarea>
+                <textarea class="form-control" id="content" name="content" placeholder="Enter content"></textarea>
             </div>
             <div class="form-group">
                 <label for="">Active</label>
@@ -49,4 +53,10 @@
         </div>
     </form>
 
+@endsection
+
+@section('footer')
+    <script>
+        CKEDITOR.replace('content')
+    </script>
 @endsection

@@ -52,11 +52,35 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../index2.html" class="nav-link">
+                                <a href="{{ route('admin.menu.list') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>List of menus</p>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-store-alt"></i>
+                            <p> Products
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.product.add') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add product</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/products/list" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List products</p>
+                                </a>
+                            </li>
+
                         </ul>
                     </li>
 
