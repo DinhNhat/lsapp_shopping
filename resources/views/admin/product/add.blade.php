@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('admin.product.store') }}" method="POST">
+    <form action="{{ url('/admin/products/add') }}" method="POST">
         @csrf
         <div class="card-body">
             <div class="row">
@@ -32,14 +32,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Original price</label>
-                        <input type="number" name="price" value="{{ old('price') }}"  class="form-control" >
+                        <input type="number" name="price" value="{{ old('price') }}"  class="form-control" step="0.01" min="0">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Sale price</label>
-                        <input type="number" name="price_sale" value="{{ old('price_sale') }}"  class="form-control" >
+                        <input type="number" name="price_sale" value="{{ old('price_sale') }}"  class="form-control" step="0.01" min="0">
                     </div>
                 </div>
             </div>
@@ -80,7 +80,6 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Add product</button>
         </div>
-        @csrf
     </form>
 @endsection
 

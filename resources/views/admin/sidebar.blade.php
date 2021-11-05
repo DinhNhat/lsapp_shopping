@@ -75,7 +75,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/products/list" class="nav-link">
+                                <a href="{{ url('/admin/products/list') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>List products</p>
                                 </a>

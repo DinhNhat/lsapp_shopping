@@ -16,9 +16,9 @@ class ProductAdminService
 
     protected function isValidPrice($request)
     {
-        if ($request->input('price') !== 0 && $request->input('price_sale') !== 0
-            && $request->input('price_sale') >= $request->input('price')
-        ) {
+        $price = (int) $request->input('price');
+        $priceSale = (int) $request->input('price_sale');
+        if ($price  !== 0 && $priceSale !== 0 && $priceSale >= $price) {
             Session::flash('error', 'Sale price must be less than the original price.');
             return false;
         }
@@ -33,7 +33,7 @@ class ProductAdminService
 
     public function insert($request)
     {
-        dd($request);
+//        dd($request);
         $isValidPrice = $this->isValidPrice($request);
         if ($isValidPrice === false) return false;
 
@@ -41,9 +41,9 @@ class ProductAdminService
             $request->except('_token');
             Product::create($request->all());
 
-            Session::flash('success', 'Thêm Sản phẩm thành công');
+            Session::flash('success', 'Store a product with success!!!');
         } catch (\Exception $err) {
-            Session::flash('error', 'Thêm Sản phẩm lỗi');
+            Session::flash('error', 'Store a product failed');
             \Log::info($err->getMessage());
             return  false;
         }
