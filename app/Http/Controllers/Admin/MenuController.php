@@ -17,7 +17,7 @@ class MenuController extends Controller
     }
 
     public function index() {
-        return view('admin.menu.index', [
+        return view('admin.menu.list', [
             'title' => 'List of latest menus',
             'menus' => $this->menuService->getAll()
         ]);

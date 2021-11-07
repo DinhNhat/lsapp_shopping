@@ -65,9 +65,9 @@ class ProductAdminService
         try {
             $product->fill($request->input());
             $product->save();
-            Session::flash('success', 'Cập nhật thành công');
+            Session::flash('success', 'Update product successfully!');
         } catch (\Exception $err) {
-            Session::flash('error', 'Có lỗi vui lòng thử lại');
+            Session::flash('error', 'Update product failed. Please try again!!!');
             \Log::info($err->getMessage());
             return false;
         }
