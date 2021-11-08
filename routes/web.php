@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function() {
             Route::get('add', [SliderController::class, 'create']);
             Route::post('add', [SliderController::class, 'store']);
             Route::get('list', [SliderController::class, 'index']);
-            Route::get('edit/{slider}', [SliderController::class, 'show']);
+            Route::get('edit/{slider}', [SliderController::class, 'show'])->name('sliders.edit');
             Route::post('edit/{slider}', [SliderController::class, 'update'])->name('sliders.update');
             Route::DELETE('destroy', [SliderController::class, 'destroy']);
         });
@@ -52,6 +52,10 @@ Route::middleware(['auth'])->group(function() {
 
     });
 
+
+    Route::fallback(function() {
+        return view('error-pages.404', ['title' => '404 Page not found']);
+    });
 
 });
 

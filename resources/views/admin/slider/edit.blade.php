@@ -22,8 +22,8 @@
                 <label for="menu">Image of product</label>
                 <input type="file"  class="form-control" id="upload">
                 <div id="image_show">
-                    <a href="{{ $slider->thumb }}">
-                        <img src="{{ $slider->thumb }}" width="100px">
+                    <a href="{{ url('/').$slider->thumb }}">
+                        <img src="{{ url('/').$slider->thumb }}" width="100px">
                     </a>
                 </div>
                 <input type="hidden" name="thumb" value="{{ $slider->thumb }}" id="thumb">
@@ -58,3 +58,37 @@
     </form>
 @endsection
 
+@section('scripts')
+    <script type="text/javascript">
+        $(function() {
+            const uploadUrl = "{{ route('admin.upload.services') }}";
+            $("#upload").change(function() {
+                const form = new FormData();
+                form.append('file', $(this)[0].files[0]);
+
+                $.ajax({
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: form,
+                    url: uploadUrl
+                })
+                    .done(function(data, textStatus) {
+                        if (data.error === false) {
+                            const imageUrl = "{{ url('/') }}" + data.url;
+                            const imageLinkHtml = `<a href=${imageUrl} target='_blank'><img src=${imageUrl} width='100px'></a>`;
+                            console.log(`Image url full path: `, imageUrl);
+                            $("#image_show").html(imageLinkHtml);
+
+                            $("#thumb").val(data.url);
+                        } else {
+                            alert(`Upload file failed`);
+                        }
+                    })
+                    .fail(function() {})
+                    .always(function() {});
+            });
+        })
+    </script>
+@endsection

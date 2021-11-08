@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\Slider\SliderService;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -45,7 +46,7 @@ class SliderController extends Controller
     public function show(Slider $slider)
     {
         return view('admin.slider.edit', [
-            'title' => 'Chỉnh Sửa Slider',
+            'title' => 'Update slider',
             'slider' => $slider
         ]);
     }
@@ -72,7 +73,7 @@ class SliderController extends Controller
         if ($result) {
             return response()->json([
                 'error' => false,
-                'message' => 'Xóa thành công Slider'
+                'message' => 'Delete slider successfully!!!'
             ]);
         }
 

@@ -6,6 +6,7 @@ namespace App\Http\Services\Slider;
 
 use App\Models\Slider;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class SliderService
 {
@@ -23,6 +24,11 @@ class SliderService
         }
 
         return true;
+    }
+
+    public function show()
+    {
+        return Slider::where('active', 1)->orderByDesc('sort_by')->get();
     }
 
     public function get()
@@ -51,16 +57,12 @@ class SliderService
         $slider = Slider::where('id', $request->input('id'))->first();
         if ($slider) {
             $path = str_replace('storage', 'public', $slider->thumb);
+//            dd("File path needs deleting: ", $path);
             Storage::delete($path);
             $slider->delete();
             return true;
         }
 
         return false;
-    }
-
-    public function show()
-    {
-        return Slider::where('active', 1)->orderByDesc('sort_by')->get();
     }
 }
