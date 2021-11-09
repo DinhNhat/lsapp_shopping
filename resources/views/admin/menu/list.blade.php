@@ -2,20 +2,22 @@
 
 @section('content')
 
-    <table class="table table-striped menus-table">
-        <thead>
-            <tr>
-                <th style="width: 1%">ID#</th>
-                <th style="width: 30%">Name</th>
-                <th style="width: 1%">Active</th>
-                <th style="width: 20%">Update</th>
-                <th style="width: 10%">&nbsp;</th>
-            </tr>
-        </thead>
-        <tbody>
-            {!! App\Helpers\Helper::menu($menus) !!}
-        </tbody>
-    </table>
+    <div class="card-body table-responsive p-0">
+        <table class="table table-striped menus-table">
+            <thead>
+                <tr>
+                    <th >ID#</th>
+                    <th >Name</th>
+                    <th >Active</th>
+                    <th >Update</th>
+                    <th >&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {!! App\Helpers\Helper::menu($menus) !!}
+            </tbody>
+        </table>
+    </div>
 
 @endsection
 
