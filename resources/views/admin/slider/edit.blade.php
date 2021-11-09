@@ -20,8 +20,13 @@
 
             <div class="form-group">
                 <label for="menu">Image of product</label>
-                <input type="file"  class="form-control" id="upload">
-                <div id="image_show">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="upload">
+                    <label class="custom-file-label" for="customFile">Upload your file</label>
+                </div>
+
+{{--                <input type="file"  class="form-control" id="upload">--}}
+                <div class="mx-0 my-2" id="image_show">
                     <a href="{{ url('/').$slider->thumb }}">
                         <img src="{{ url('/').$slider->thumb }}" width="100px">
                     </a>
