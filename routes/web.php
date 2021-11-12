@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\Users\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
@@ -16,6 +17,8 @@ Route::middleware(['auth'])->group(function() {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::get('/', [MainController::class, 'index'])->name('index');
 //        Route::get('main', [MainController::class, 'index']);
+
+        Route::post('logout', [LogoutController::class, 'adminLogout'])->name('logout');
 
         #Menu
         Route::prefix('menus')->group(function() {

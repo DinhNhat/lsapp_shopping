@@ -108,6 +108,17 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item">
+                        <form class="logout-form" action="{{ route('admin.logout') }}" method="post">
+                            @csrf
+                            <a href="javascript:void(0)" class="nav-link" onclick="event.preventDefault(); document.querySelector('form.logout-form').submit();">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <p><span class="badge badge-danger">Logout</span></p>
+                            </a>
+                        </form>
+
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
