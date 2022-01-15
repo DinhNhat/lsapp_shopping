@@ -113,7 +113,7 @@
                             @csrf
                             <a href="javascript:void(0)" class="nav-link" onclick="event.preventDefault(); document.querySelector('form.logout-form').submit();">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p><span class="badge badge-danger">Logout</span></p>
+                                <p><span class="badge">Logout</span></p>
                             </a>
                         </form>
 
