@@ -58,9 +58,10 @@
                 <label for="menu">Product image</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="upload">
+{{--                    <input type="file" class="custom-file-input" id="exampleInputFile">--}}
                     <label class="custom-file-label" for="customFile">Upload your file</label>
                 </div>
-{{--                <input type="file"  class="form-control" id="upload">--}}
+                <input type="file"  class="form-control" id="upload">
                 <div class="mx-0 my-2" id="image_show">
 
                 </div>
