@@ -109,6 +109,23 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-envelope-open"></i>
+                            <p> Another feature
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add another feature</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
                         <form class="logout-form" action="{{ route('admin.logout') }}" method="post">
                             @csrf
                             <a href="javascript:void(0)" class="nav-link" onclick="event.preventDefault(); document.querySelector('form.logout-form').submit();">
